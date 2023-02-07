@@ -127,7 +127,7 @@ for page in pages:
     url_search = webpage_0 + "&page=" + str(page)+".html"
 # SCRAPING
     r2 = requests.get(url_search)
-    webpage = bs(r2.text)
+    webpage = bs(r2.text, features="html.parser")
     articles = webpage.main.select('article', attrs={'data-highlight': 'false'})
     for article in articles:
         id_offers = article.attrs['id']
